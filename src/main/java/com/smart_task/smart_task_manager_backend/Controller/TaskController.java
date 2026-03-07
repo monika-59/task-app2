@@ -5,6 +5,9 @@ import com.smart_task.smart_task_manager_backend.Model.User;
 import com.smart_task.smart_task_manager_backend.Repository.TaskRepository;
 import com.smart_task.smart_task_manager_backend.Repository.UserRepository;
 import com.smart_task.smart_task_manager_backend.Security.JwtService;
+
+import jakarta.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +18,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestController
+@Transactional
 @RequestMapping("/api/tasks")
 public class TaskController {
 
