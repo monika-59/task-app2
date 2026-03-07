@@ -46,13 +46,13 @@ public class Task {
     @Column(name = "is_delayed")
     private Boolean isDelayed = false;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "assigned_to_user_id", referencedColumnName = "id")
     @JsonIgnoreProperties({"tasks", "password", "hibernateLazyInitializer", "handler"})
     private User assignedTo;
 
     // ✅ NEW: Track which admin assigned this task
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "assigned_by_user_id", referencedColumnName = "id")
     @JsonIgnoreProperties({"tasks", "password", "hibernateLazyInitializer", "handler"})
     private User assignedBy;
